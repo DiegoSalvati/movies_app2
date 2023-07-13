@@ -81,7 +81,7 @@ class Result {
     _video = result['video'];
     _vote_average = result['vote_average'].toString();
     _title = result['title'];
-    _popularity = result['popularity'].toInt();
+    _popularity = result['popularity'].toDouble();
     _poster_path = result['poster_path'];
     _original_language = result['original_language'];
     _original_title = result['original_title'];
