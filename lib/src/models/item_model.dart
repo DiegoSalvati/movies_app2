@@ -27,7 +27,7 @@ class ItemModel {
     _results = temp;
   }
 
-  ItemModel(_results);
+  ItemModel(_result);
 
   List<Result> get results => _results;
 
@@ -81,7 +81,7 @@ class Result {
     _video = result['video'];
     _vote_average = result['vote_average'].toString();
     _title = result['title'];
-    _popularity = result['popularity'];
+    _popularity = result['popularity'].toInt();
     _poster_path = result['poster_path'];
     _original_language = result['original_language'];
     _original_title = result['original_title'];
