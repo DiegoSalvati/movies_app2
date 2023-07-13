@@ -37,8 +37,8 @@ class MovieApiProvider {
           var file = await client.get(Uri.parse('https://image.tmdb.org/t/p/w300/'+element.poster_path)); // <--2
 
           Poster poster = Poster(file.bodyBytes, element.poster_path);
-          Movie movie = Movie(poster, element.backdrop_path, element.overview, element.release_date,
-              element.vote_average);
+          Movie movie = Movie(poster, element.title,  element.backdrop_path, element.overview, element.release_date,
+              element.vote_average, element.id.toString());
           moviesResult.add(movie);
 
           movie.poster!.path = ""; // set to emtpy string
@@ -49,8 +49,8 @@ class MovieApiProvider {
       }
     }
     catch(e) {
-      return box!.values.map((element) {  return Movie(element.poster,
-          element.backdrop_path, element.overview, element.release_date, element.vote_average); }).toList();
+      return box!.values.map((element) {  return Movie(element.poster, element.title,
+          element.backdrop_path, element.overview, element.release_date, element.vote_average, element.id); }).toList();
     }
     // storage.store(movies);
     return moviesResult;
